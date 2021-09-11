@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: nacos-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.97.7.212:8848
+      config:
+        server-addr: 47.97.7.212:8848
+        file-extension: yml # 指定配置中心的文件类型
+        prefix: nacos-web # 指定配置文件的前置
+        shared-dataids: common.yml #添加共享配置的dataId,如多个使用逗号分隔，并且越靠后，优先级越高
+        refreshable-dataids: common.yml
+  profiles:
+    active: test
+
+server:
+  port: 9100
+#健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
